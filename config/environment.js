@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'livarava-jobs-ember',
     environment,
-    rootURL: '/',
+    rootURL: '/admin/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -20,15 +20,39 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    api: {
+      host: 'https://www.livarava.com',
+      path: '/api/v2',
+      token: null,
+    },
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['api'] = {
+      host: 'https://dev.livarava.com',
+      path: '/api/v2',
+      token: null,
+    };
+  }
+
+  if (environment === 'local') {
+    ENV['api'] = {
+      host: '//local.livarava.com',
+      path: '/api/v2',
+      token: null,
+    };
+
+    ENV['metricsAdapters'] = [];
+  }
+
+  if (environment === 'master') {
+    ENV['api'] = {
+      host: 'https://www.livarava.com',
+      path: '/api/v2',
+      token: null,
+    };
   }
 
   if (environment === 'test') {

@@ -85,7 +85,7 @@ export default Service.extend({
     const host = config.api.host;
     const path = config.api.path;
     const time = new Date().getTime();
-    const site = config.neuronet.uid;
+    const site = config.APP.neuronet.uid;
 
     let url = `${host}${path}/me` +
       `?__t=${time}` +
@@ -115,7 +115,7 @@ export default Service.extend({
     const host = config.api.host;
     const path = config.api.path;
     const time = new Date().getTime();
-    const site = config.neuronet.uid;
+    const site = config.APP.neuronet.uid;
 
     let url = `${host}${path}/me` +
       `?__t=${time}` +
@@ -142,7 +142,7 @@ export default Service.extend({
     const host = config.api.host;
     const path = config.api.path;
     const time = new Date().getTime();
-    const site = config.neuronet.uid;
+    const site = config.APP.neuronet.uid;
 
     let url = `${host}${path}/signup/` +
       `?__t=${time}` +
@@ -173,7 +173,7 @@ export default Service.extend({
     const host = config.api.host;
     const path = config.api.path;
     const time = new Date().getTime();
-    const site = config.neuronet.uid;
+    const site = config.APP.neuronet.uid;
 
     const url = `${host}${path}/signin/` +
       `?__t=${time}` +
@@ -205,7 +205,7 @@ export default Service.extend({
     const path = config.api.path;
     const time = new Date().getTime();
     const token = get(this, 'token');
-    const site = config.neuronet.uid;
+    const site = config.APP.neuronet.uid;
 
     let url = `${host}${path}/signout/` +
       `?__t=${time}` +

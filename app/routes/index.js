@@ -15,7 +15,7 @@ export default Route.extend(AnonymousRouteMixin, {
       if (signed) {
         this.transitionTo('index');
       } else {
-        this.transitionTo('index');
+        this.transitionTo('login');
       }
     }
 

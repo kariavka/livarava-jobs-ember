@@ -18,14 +18,24 @@ module.exports = function (environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      neuronet: {
+        uid: 'f12878c8-7cd8-11e4-9f30-040105750d01',
+        site: 4964,
+        blog: '0,4964,97646',
+        careers: '0,4964,133211',
+      },
     },
 
     api: {
       host: 'https://www.livarava.com',
       path: '/api/v2',
       token: null,
+    },
+
+    moment: {
+      includeLocales: true,
+      includeTimezone: 'all',
+      defaultTimezone: 'UTC',
     },
   };
 

@@ -1,0 +1,34 @@
+{{#bs-navbar class="navbar-dark bg-dark" as |navbar|}}
+
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    {{#link-to "index" class="navbar-brand"}}
+      <img src="{{rootURL}}img/logo-horizontal-white.svg"
+           width="100"
+           class="img img-fluid"
+           alt="LivaRava Logo">
+    {{/link-to}}
+  </div>
+
+  {{#navbar.content style="width: 100%;"}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "index"}}Home{{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+
+    {{#navbar.nav class="ml-auto" as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "profile"}}
+          {{user-avatar item=me}}
+          {{me.fullname}}
+        {{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "logout"}}Logout{{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+
+  {{/navbar.content}}
+
+{{/bs-navbar}}

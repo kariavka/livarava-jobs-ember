@@ -24,6 +24,23 @@ module.exports = function (environment) {
         blog: '0,4964,97646',
         careers: '0,4964,133211',
       },
+
+      displayOptions: [{
+        value: 'public',
+        label: 'Public',
+        icon: 'fa fa-globe',
+        description: 'Anyone on or off LivaRava',
+      }, {
+        value: 'unlisted',
+        label: 'Unlisted',
+        icon: 'fa fa-chain',
+        description: 'Only by the link',
+      }, {
+        value: 'private',
+        label: 'Private',
+        icon: 'fa fa-lock',
+        description: 'Only me',
+      },],
     },
 
     api: {

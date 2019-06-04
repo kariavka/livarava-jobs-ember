@@ -47,6 +47,8 @@ export default Controller.extend({
 
           if (window && next) {
             window.open(next, '_self');
+          } else {
+            this.transitionToRoute('index');
           }
         })
         .catch((response) => {

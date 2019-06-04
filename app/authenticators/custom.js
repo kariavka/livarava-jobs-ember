@@ -18,8 +18,8 @@ export default Base.extend({
     const meToken = get(this, 'me.token');
     const token = dataToken || sessionToken || cookiesToken || meToken;
 
-    Ember.Logger.log('Restoring session...');
-    Ember.Logger.log(`Token: ${token}`);
+    console.log('Restoring session...');
+    console.log(`Token: ${token}`);
 
     // noinspection UnnecessaryLocalVariableJS
     let promise = new Promise(function (resolve, reject) {

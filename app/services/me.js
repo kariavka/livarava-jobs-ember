@@ -38,8 +38,8 @@ export default Service.extend({
   }),
 
   write(token, data) {
-    Ember.Logger.log('Writing session data...');
-    Ember.Logger.log('Token: ', token);
+    console.log('Writing session data...');
+    console.log('Token: ', token);
 
     // Write token to Session
     set(this, 'session.token', token);

@@ -13,3 +13,30 @@
     }
   }
 }
+
+.job {
+
+  .job-title {
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px none #ccc;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .job-title-input {
+    width: 100%;
+  }
+
+  .job-description {
+    border: 1px none #ccc;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .job-description-input {
+    width: 100%;
+    min-height: 500px;
+  }
+
+}

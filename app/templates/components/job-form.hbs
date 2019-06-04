@@ -1,0 +1,43 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      {{#link-to "index"}}Jobs{{/link-to}}
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{{if item.title item.title 'New'}}}
+    </li>
+  </ol>
+</nav>
+
+<div class="card">
+  <div class="card-header">
+    {{#if isTitleEdit}}
+      {{#click-outside action=(action (mut isTitleEdit) false)}}
+        {{input
+          id="jobTitleInput" type="text"
+          class="job-title job-title-input"
+          placeholder="Enter a title for this job..."
+          value=item.title}}
+      {{/click-outside}}
+    {{else}}
+      <div class="job-title" {{action "titleEdit"}}>
+        {{{item.title}}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="card-body">
+    {{#if isDescriptionEdit}}
+      {{#click-outside action=(action (mut isDescriptionEdit) false)}}
+        {{textarea
+          id="jobDescriptionInput"
+          class="job-description job-description-input"
+          placeholder="Add more detailed description..."
+          value=item.description}}
+      {{/click-outside}}
+    {{else}}
+      <div class="job-description" {{action "descriptionEdit"}}>
+        {{{item.description}}}
+      </div>
+    {{/if}}
+  </div>
+</div>

@@ -11,6 +11,7 @@ Router.map(function () {
   this.route('logout');
   this.route('profile');
   this.route('edit', {path: '/edit/:id'});
+  this.route('create');
 });
 
 export default Router;

@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import Service, {inject as service} from '@ember/service';
 import {get, set, computed} from '@ember/object';
 import {reads} from '@ember/object/computed';
@@ -6,6 +5,7 @@ import {htmlSafe} from '@ember/string';
 import fetch from 'ember-fetch/ajax';
 import config from 'livarava-jobs-ember/config/environment';
 
+// noinspection JSUnusedGlobalSymbols
 export default Service.extend({
   // Services
   store: service(),

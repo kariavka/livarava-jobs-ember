@@ -21,8 +21,8 @@ export default Route.extend({
 
   // Model
   model(params) {
-    const session = this.get('session');
-    const isAuthenticated = this.get('session.isAuthenticated');
+    const session = get(this, 'session');
+    const isAuthenticated = get(this, 'session.isAuthenticated');
     const next = params.next || null;
 
     if (isAuthenticated) {

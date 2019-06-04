@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
 import {get} from '@ember/object';
 import {inject as service} from '@ember/service';
@@ -38,7 +37,7 @@ export default Base.extend({
   },
 
   authenticate(login, password) {
-    const me = this.get('me');
+    const me = get(this, 'me');
 
     // noinspection UnnecessaryLocalVariableJS
     let promise = new Promise(function (resolve, reject) {
@@ -63,7 +62,7 @@ export default Base.extend({
   },
 
   invalidate() {
-    const me = this.get('me');
+    const me = get(this, 'me');
 
     // noinspection UnnecessaryLocalVariableJS
     let promise = new Promise(function (resolve) {

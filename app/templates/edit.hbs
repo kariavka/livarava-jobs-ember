@@ -1,0 +1,32 @@
+{{common-header}}
+
+<div class="job">
+
+  <div class="container mt-5">
+
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-10 offset-md-1">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              {{#link-to "index"}}Jobs{{/link-to}}
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{{model.title}}}</li>
+          </ol>
+        </nav>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>{{{model.title}}}</h3>
+          </div>
+          <div class="card-body">
+            {{{model.description}}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

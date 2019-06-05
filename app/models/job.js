@@ -38,7 +38,7 @@ export default DS.Model.extend({
   display: DS.attr('string'),
 
   // Featured
-  featured: DS.attr('string'),
+  featured: DS.attr('boolean'),
 
   // Icon
   icon_url: DS.attr('string'),

@@ -1,21 +1,20 @@
 import Component from '@ember/component';
-import {get, set} from '@ember/object';
+import {get, set, computed} from '@ember/object';
 
 export default Component.extend({
-  faIconName: null,
+  faIconName: computed('item.featured', function () {
+    const featured = get(this, 'item.featured');
+    return featured ? 'fa-star' : 'fa-star-o';
+  }),
 
-  didReceiveAttrs() {
-    this._super(...arguments);
+  actions: {
 
-    let faIconName;
-    const item = get(this, 'item');
+    update() {
+      const item = get(this, 'item');
+      let featured = !item.featured;
+      item.set('featured', featured);
+      item.save();
+    },
 
-    if (item.featured) {
-      faIconName = 'fa-star';
-    } else {
-      faIconName = 'fa-star-o';
-    }
-
-    set(this, 'faIconName', faIconName);
-  }
+  },
 });

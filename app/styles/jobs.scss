@@ -16,27 +16,71 @@
 
 .job {
 
+  .job-title-icon {
+    width: 32px;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+
   .job-title {
     font-size: 25px;
     font-weight: bold;
-    border: 1px none #ccc;
+    border: 1px solid #F7F7F7;
     padding: 5px;
     margin: 0;
   }
 
   .job-title-input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
     width: 100%;
   }
 
+  .job-description-header {
+    padding-left: 5px;
+  }
+
   .job-description {
-    border: 1px none #ccc;
-    padding: 5px;
+    border: 1px solid #FFF;
+    min-height: 200px;
+    padding: 5px 20px 5px 5px;
     margin: 0;
   }
 
   .job-description-input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
     width: 100%;
-    min-height: 500px;
+    min-height: 200px;
+    padding: 5px 5px 5px 5px;
   }
+
+  button.btn-light {
+    background-color: #ddd;
+  }
+
+  .job-actions {
+    button {
+      width: 100%;
+      background-color: #ddd;
+      font-size: 15px;
+      text-align: left;
+
+      i {
+        color: #777;
+      }
+
+      b {
+        color: #555;
+      }
+
+      .fa {
+        width: 20px;
+      }
+    }
+  }
+
 
 }

@@ -12,7 +12,7 @@
 <div class="card">
   <div class="card-header">
     {{#if isTitleEdit}}
-      {{#click-outside action=(action (mut isTitleEdit) false)}}
+      {{#click-outside action=(action "titleClickOutside")}}
         {{input
           id="jobTitleInput" type="text"
           class="job-title job-title-input"
@@ -20,24 +20,78 @@
           value=item.title}}
       {{/click-outside}}
     {{else}}
-      <div class="job-title" {{action "titleEdit"}}>
-        {{{item.title}}}
-      </div>
+      <span class="job-title" {{action "titleClick"}}>
+        {{#if item.title}}
+          {{{item.title}}}
+        {{else}}
+          <span class="text-muted">Enter a title for this job...</span>
+        {{/if}}
+      </span>
     {{/if}}
   </div>
   <div class="card-body">
-    {{#if isDescriptionEdit}}
-      {{#click-outside action=(action (mut isDescriptionEdit) false)}}
-        {{textarea
-          id="jobDescriptionInput"
-          class="job-description job-description-input"
-          placeholder="Add more detailed description..."
-          value=item.description}}
-      {{/click-outside}}
-    {{else}}
-      <div class="job-description" {{action "descriptionEdit"}}>
-        {{{item.description}}}
+    <div class="row">
+      <div class="col-10">
+        <div class="job-description-header">
+          <div class="text-uppercase text-muted small mb-2">
+            <b class="mr-3">Description</b>
+            {{#unless isDescriptionEdit}}
+              <button class="btn btn-sm btn-light" {{action "descriptionClick"}}>
+                Edit
+              </button>
+            {{/unless}}
+          </div>
+        </div>
+        {{#if isDescriptionEdit}}
+          {{#click-outside action=(action "descriptionClickOutside")}}
+            {{textarea
+              id="jobDescriptionInput"
+              class="job-description job-description-input"
+              placeholder="Add more detailed description..."
+              value=item.description
+              autoresize=true}}
+            <div class="row">
+              <div class="col-6 text-left">
+                <button class="btn btn-success" {{action "descriptionClickSave"}}>
+                  Save
+                </button>
+              </div>
+              <div class="col-6 text-right">
+                <button class="btn btn-secondary">
+                  Formatting Help
+                </button>
+              </div>
+            </div>
+          {{/click-outside}}
+        {{else}}
+          <div class="job-description" {{action "descriptionClick"}}>
+            {{#if item.description}}
+              {{markdown-to-html item.description}}
+            {{else}}
+              <span class="text-muted">Add more detailed description...</span>
+            {{/if}}
+          </div>
+        {{/if}}
       </div>
-    {{/if}}
+      <div class="col-2 job-actions">
+        <div class="job-actions-header">
+          <div class="text-uppercase text-muted small mb-2">
+            <b>Actions</b>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-light">
+            <i class="fa fa-copy"></i>
+            <b>Copy</b>
+          </button>
+        </div>
+        <div>
+          <button class="btn btn-light">
+            <i class="fa fa-trash"></i>
+            <b>Delete</b>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -54,6 +54,10 @@ module.exports = function (environment) {
       includeTimezone: 'all',
       defaultTimezone: 'UTC',
     },
+
+    showdown: {
+      simplifiedAutoLink: true
+    },
   };
 
   if (environment === 'development') {

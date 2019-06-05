@@ -27,17 +27,15 @@
               <tbody>
               {{#each model.items as |item|}}
                 <tr>
-                  <td>{{input type="checkbox"}}</td>
-                  <td><i class="fa fa-star"></i></td>
                   <td>
                     {{#link-to "edit" item.id}}
                       {{{item.title}}}
                     {{/link-to}}
                   </td>
                   <td class="text-right">
-                    <span class="small">
-                      {{moment-format item.created 'MMMM D, YYYY'}}
-                    </span>
+                      <span class="small">
+                        {{moment-format item.created 'MMMM D, YYYY'}}
+                      </span>
                   </td>
                 </tr>
               {{/each}}

@@ -12,6 +12,7 @@ export default Component.extend({
 
   // Flags
   isTitleEdit: false,
+  isSummaryEdit: false,
   isDescriptionEdit: false,
 
   // Functions
@@ -31,6 +32,14 @@ export default Component.extend({
       return;
     }
     set(this, 'isTitleEdit', false);
+    this.save();
+  },
+  
+  summarySave() {
+    if (!get(this, 'isSummaryEdit')) {
+      return;
+    }
+    set(this, 'isSummaryEdit', false);
     this.save();
   },
 
@@ -54,6 +63,22 @@ export default Component.extend({
 
     titleClickOutside() {
       this.titleSave();
+    },
+    
+    summaryClick() {
+      set(this, 'isSummaryEdit', true);
+      delay(10).then(() => {
+        this.$('#jobSummaryInput').select();
+        this.$('#jobSummaryInput').focus();
+      });
+    },
+
+    summaryClickOutside() {
+      this.summarySave();
+    },
+
+    summaryClickSave() {
+      this.summarySave();
     },
 
     descriptionClick() {

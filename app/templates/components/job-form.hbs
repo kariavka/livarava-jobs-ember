@@ -32,46 +32,88 @@
   <div class="card-body">
     <div class="row">
       <div class="col-10">
-        <div class="job-description-header">
-          <div class="text-uppercase text-muted small mb-2">
-            <b class="mr-3">Description</b>
-            {{#unless isDescriptionEdit}}
-              <button class="btn btn-sm btn-light" {{action "descriptionClick"}}>
-                Edit
-              </button>
-            {{/unless}}
-          </div>
-        </div>
-        {{#if isDescriptionEdit}}
-          {{#click-outside action=(action "descriptionClickOutside")}}
-            {{textarea
-              id="jobDescriptionInput"
-              class="job-description job-description-input"
-              placeholder="Add more detailed description..."
-              value=item.description
-              autoresize=true}}
-            <div class="row">
-              <div class="col-6 text-left">
-                <button class="btn btn-success" {{action "descriptionClickSave"}}>
-                  Save
+
+        <div class="job-summary-holder mb-3">
+          <div class="job-summary-header">
+            <div class="text-uppercase text-muted small mb-2">
+              <b class="mr-3">Summary</b>
+              {{#unless isSummaryEdit}}
+                <button class="btn btn-sm btn-light" {{action "summaryClick"}}>
+                  Edit
                 </button>
-              </div>
-              <div class="col-6 text-right">
-                <button class="btn btn-secondary">
-                  Formatting Help
-                </button>
-              </div>
+              {{/unless}}
             </div>
-          {{/click-outside}}
-        {{else}}
-          <div class="job-description" {{action "descriptionClick"}}>
-            {{#if item.description}}
-              {{markdown-to-html item.description}}
-            {{else}}
-              <span class="text-muted">Add more detailed description...</span>
-            {{/if}}
           </div>
-        {{/if}}
+          {{#if isSummaryEdit}}
+            {{#click-outside action=(action "summaryClickOutside")}}
+              {{textarea
+                id="jobSummaryInput"
+                class="job-summary-input"
+                placeholder="Add short summary for this job..."
+                value=item.summary
+                autoresize=true}}
+              <div class="row">
+                <div class="col-6 text-left">
+                  <button class="btn btn-sm btn-success" {{action "summaryClickSave"}}>
+                    Save
+                  </button>
+                </div>
+              </div>
+            {{/click-outside}}
+          {{else}}
+            <div class="job-summary" {{action "summaryClick"}}>
+              {{#if item.summary}}
+                {{item.summary}}
+              {{else}}
+                <span class="text-muted">Add short summary for this job...</span>
+              {{/if}}
+            </div>
+          {{/if}}
+        </div>
+
+        <div class="job-description-holder">
+          <div class="job-description-header">
+            <div class="text-uppercase text-muted small mb-2">
+              <b class="mr-3">Description</b>
+              {{#unless isDescriptionEdit}}
+                <button class="btn btn-sm btn-light" {{action "descriptionClick"}}>
+                  Edit
+                </button>
+              {{/unless}}
+            </div>
+          </div>
+          {{#if isDescriptionEdit}}
+            {{#click-outside action=(action "descriptionClickOutside")}}
+              {{textarea
+                id="jobDescriptionInput"
+                class="job-description job-description-input"
+                placeholder="Add more detailed description..."
+                value=item.description
+                autoresize=true}}
+              <div class="row">
+                <div class="col-6 text-left">
+                  <button class="btn btn-sm btn-success" {{action "descriptionClickSave"}}>
+                    Save
+                  </button>
+                </div>
+                <div class="col-6 text-right">
+                  <button class="btn btn-sm btn-secondary">
+                    Formatting Help
+                  </button>
+                </div>
+              </div>
+            {{/click-outside}}
+          {{else}}
+            <div class="job-description" {{action "descriptionClick"}}>
+              {{#if item.description}}
+                {{markdown-to-html item.description}}
+              {{else}}
+                <span class="text-muted">Add more detailed description...</span>
+              {{/if}}
+            </div>
+          {{/if}}
+        </div>
+
       </div>
       <div class="col-2 job-actions">
         <div class="job-actions-header">

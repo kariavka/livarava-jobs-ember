@@ -28,6 +28,12 @@
               {{#each model.items as |item|}}
                 <tr>
                   <td>
+                    {{display-icon item=item}}
+                  </td>
+                  <td>
+                    {{featured-icon item=item}}
+                  </td>
+                  <td>
                     {{#link-to "edit" item.id}}
                       {{{item.title}}}
                     {{/link-to}}

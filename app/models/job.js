@@ -30,12 +30,16 @@ export default DS.Model.extend({
   // Type
   type: DS.attr('string'),
   typeLabel: computed('type', function () {
-    let type = get('type');
+    let type = get(this, 'type');
     return type[0].toUpperCase() + type.slice(1, type.length);
   }),
 
   // Display
   display: DS.attr('string'),
+  displayLabel: computed('display', function () {
+    let display = get(this, 'display');
+    return display[0].toUpperCase() + display.slice(1, display.length);
+  }),
 
   // Featured
   featured: DS.attr('boolean'),

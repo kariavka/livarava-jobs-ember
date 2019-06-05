@@ -4,3 +4,16 @@
 @import "font-awesome";
 @import "header";
 @import "jobs";
+
+.display-dropdown {
+  padding: 10px;
+
+}
+
+.display-dropdown-item {
+  cursor: pointer;
+
+  .fa {
+    width: 20px;
+  }
+}

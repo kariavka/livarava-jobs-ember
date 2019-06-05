@@ -28,21 +28,24 @@
               {{#each model.items as |item|}}
                 <tr>
                   <td>
-                    {{display-icon item=item}}
-                  </td>
-                  <td>
-                    {{featured-icon
-                      item=item}}
-                  </td>
-                  <td>
-                    {{#link-to "edit" item.id}}
-                      {{{item.title}}}
-                    {{/link-to}}
-                  </td>
-                  <td class="text-right">
-                      <span class="small">
-                        {{moment-format item.created 'MMMM D, YYYY'}}
-                      </span>
+                    <div class="row">
+                      <div class="col-7">
+                        {{#link-to "edit" item.id}}
+                          {{{item.title}}}
+                        {{/link-to}}
+                      </div>
+                      <div class="col-2">
+                        {{display-icon item=item}}
+                      </div>
+                      <div class="col-1">
+                        {{featured-icon item=item}}
+                      </div>
+                      <div class="col-2 text-right">
+                        <span class="small">
+                          {{moment-format item.created 'MMMM D, YYYY'}}
+                        </span>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               {{/each}}

@@ -1,23 +1,28 @@
 import Component from '@ember/component';
-import {get, set} from '@ember/object';
+import {get, set, computed} from '@ember/object';
 
 export default Component.extend({
-  faIconName: null,
+  faIconName: computed('item.display', function () {
+    const display = get(this, 'item.display');
 
-  didReceiveAttrs() {
-    this._super(...arguments);
-
-    let faIconName;
-    const item = get(this, 'item');
-
-    if (item.display === 'public') {
-      faIconName = 'fa-globe';
-    } else if (item.display === 'unlisted') {
-      faIconName = 'fa-user';
-    } else if (item.display === 'private') {
-      faIconName = 'fa-lock';
+    if (display === 'public') {
+      return 'fa-globe';
+    } else if (display === 'unlisted') {
+      return 'fa-user';
+    } else if (display === 'private') {
+      return 'fa-lock';
+    } else {
+      return 'fa-question';
     }
+  }),
 
-    set(this, 'faIconName', faIconName);
-  }
+  actions: {
+
+    update(display) {
+      const item = get(this, 'item');
+      item.set('display', display);
+      item.save();
+    },
+
+  },
 });

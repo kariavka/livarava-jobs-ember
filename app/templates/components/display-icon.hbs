@@ -1,1 +1,18 @@
-<i class="fa {{faIconName}}"></i>
+{{#bs-dropdown as |dd|}}
+  {{#dd.button class="btn btn-sm btn-light"}}
+    <i class="fa {{faIconName}}"></i>
+    {{item.displayLabel}}
+    <span class="caret"></span>
+  {{/dd.button}}
+  {{#dd.menu class="display-dropdown" as |ddm|}}
+    <div class="display-dropdown-item" {{action "update" "public"}}>
+      <small><i class="fa fa-globe"></i> Public</small>
+    </div>
+    <div class="display-dropdown-item" {{action "update" "unlisted"}}>
+      <small><i class="fa fa-eye-slash"></i> Unlisted</small>
+    </div>
+    <div class="display-dropdown-item" {{action "update" "private"}}>
+      <small><i class="fa fa-lock"></i> Private</small>
+    </div>
+  {{/dd.menu}}
+{{/bs-dropdown}}

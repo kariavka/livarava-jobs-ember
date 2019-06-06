@@ -34,7 +34,7 @@ export default Component.extend({
     set(this, 'isTitleEdit', false);
     this.save();
   },
-  
+
   summarySave() {
     if (!get(this, 'isSummaryEdit')) {
       return;
@@ -64,7 +64,7 @@ export default Component.extend({
     titleClickOutside() {
       this.titleSave();
     },
-    
+
     summaryClick() {
       set(this, 'isSummaryEdit', true);
       delay(10).then(() => {
@@ -95,6 +95,18 @@ export default Component.extend({
 
     descriptionClickSave() {
       this.descriptionSave();
+    },
+
+    copy() {
+    },
+
+    delete() {
+      if (confirm("Are you sure?")) {
+        const item = get(this, 'item');
+        item.destroyRecord().then(() => {
+          get(this, 'router').transitionTo('index');
+        });
+      }
     },
 
   },

@@ -23,34 +23,42 @@
           </div>
 
           <div class="card-body">
-            <table class="table">
-              <tbody>
-              {{#each model.items as |item|}}
-                <tr>
-                  <td>
-                    <div class="row">
-                      <div class="col-7">
-                        {{#link-to "edit" item.id}}
-                          {{{item.title}}}
-                        {{/link-to}}
-                      </div>
-                      <div class="col-2">
-                        {{display-icon item=item}}
-                      </div>
-                      <div class="col-1">
-                        {{featured-icon item=item}}
-                      </div>
-                      <div class="col-2 text-right">
+
+            {{#if model.items}}
+              <table class="table">
+                <tbody>
+                {{#each model.items as |item|}}
+                  <tr>
+                    <td>
+                      <div class="row">
+                        <div class="col-7">
+                          {{#link-to "edit" item.id}}
+                            {{{item.title}}}
+                          {{/link-to}}
+                        </div>
+                        <div class="col-2">
+                          {{display-icon item=item}}
+                        </div>
+                        <div class="col-1">
+                          {{featured-icon item=item}}
+                        </div>
+                        <div class="col-2 text-right">
                         <span class="small">
                           {{moment-format item.created 'MMMM D, YYYY'}}
                         </span>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                </tr>
-              {{/each}}
-              </tbody>
-            </table>
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+            {{else}}
+              <div class="alert alert-info">
+                No jobs yet.
+              </div>
+            {{/if}}
+
           </div>
 
         </div>

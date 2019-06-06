@@ -1,1 +1,44 @@
-{{outlet}}
+{{#if me.signed }}
+
+  {{#if me.rights.jobs}}
+
+    {{outlet}}
+
+  {{else}}
+
+    <div class="container mt-3">
+
+      <div class="row">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
+
+          <div class="row mb-4">
+            <div class="col-6 offset-3">
+              <img src="/admin/img/logo-horizontal.svg"
+                   class="img img-fluid"
+                   alt="LivaRava Logo">
+            </div>
+          </div>
+
+          <div class="alert alert-info">
+            <p>
+              <b>{{user-avatar item=me}} {{me.fullname}}</b>
+            </p>
+            <p>
+              Your account is not available for LivaRava Jobs.
+            </p>
+            <p class="mb-0">
+              {{#link-to "logout"}}Logout{{/link-to}}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  {{/if}}
+
+{{else}}
+
+  {{outlet}}
+
+{{/if}}

@@ -98,6 +98,8 @@ export default Component.extend({
     },
 
     copy() {
+      const copy = parseInt(get(this, 'item.id'));
+      get(this, 'router').transitionTo('create', {queryParams: {copy}});
     },
 
     delete() {

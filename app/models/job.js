@@ -1,7 +1,8 @@
 import DS from "ember-data";
+import Copyable from 'ember-data-copyable';
 import {computed, get} from "@ember/object";
 
-export default DS.Model.extend({
+export default DS.Model.extend(Copyable, {
   // Attributes
   title: DS.attr('string'),
   header: DS.attr('string'),

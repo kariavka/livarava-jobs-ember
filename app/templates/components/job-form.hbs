@@ -31,7 +31,8 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-10">
+
+      <div class="job-body col-8 col-sm-8 col-md-9 col-xl-10">
 
         <div class="job-summary-holder mb-3">
           <div class="job-summary-header">
@@ -115,25 +116,27 @@
         </div>
 
       </div>
-      <div class="col-2 job-actions">
+
+      <div class="job-actions col-4 col-sm-4 col-md-3 col-xl-2">
         <div class="job-actions-header">
           <div class="text-uppercase text-muted small mb-2">
             <b>Actions</b>
           </div>
         </div>
         <div>
-          <button class="btn btn-light">
+          <button class="btn btn-light" {{action "create"}}>
             <i class="fa fa-copy"></i>
             <b>Copy</b>
           </button>
         </div>
         <div>
-          <button class="btn btn-light">
+          <button class="btn btn-light" {{action "delete"}}>
             <i class="fa fa-trash"></i>
             <b>Delete</b>
           </button>
         </div>
       </div>
+
     </div>
   </div>
 </div>

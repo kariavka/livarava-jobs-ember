@@ -1,6 +1,6 @@
 {
   "name": "livarava-jobs-ember",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "description": "LivaRava Jobs Admin",
   "repository": "",
@@ -42,6 +42,7 @@
     "ember-click-outside": "^1.0.4",
     "ember-cookies": "^0.4.0",
     "ember-data": "~3.7.0",
+    "ember-data-copyable": "^1.1.1",
     "ember-delay": "^0.1.0",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^6.5.1",

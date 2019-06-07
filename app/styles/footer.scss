@@ -1,4 +1,15 @@
 footer {
   background-color: #eee;
   min-height: 50px;
+
+  .btn-social {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background-color: #888;
+    display: inline-block;
+    line-height: 24px;
+    text-align: center;
+    color: #eee;
+  }
 }

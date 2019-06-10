@@ -58,6 +58,19 @@ module.exports = function (environment) {
     showdown: {
       simplifiedAutoLink: true
     },
+
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['local', 'master', 'production'],
+        config: {
+          id: 'UA-3675054-47',
+          debug: environment === 'local',
+          trace: environment === 'local',
+          sendHitTask: environment !== 'local',
+        }
+      },
+    ],
   };
 
   if (environment === 'development') {
@@ -74,8 +87,6 @@ module.exports = function (environment) {
       path: '/api/v2',
       token: null,
     };
-
-    ENV['metricsAdapters'] = [];
   }
 
   if (environment === 'master') {

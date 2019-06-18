@@ -14,6 +14,7 @@ export default DS.Model.extend(Copyable, {
   price: DS.attr('number'),
   online: DS.attr('boolean'),
   language: DS.attr('string'),
+  link: DS.attr('string'),
 
   // Stats
   weight: DS.attr('number'),
@@ -60,7 +61,7 @@ export default DS.Model.extend(Copyable, {
   link_url: computed('type', 'title', function () {
     let type = get('type');
     let url = get('title');
-    return (type === 'link') ? `/goto/?url=${encodeURIComponent(url)}` : null;
+    return (type === 'link') ? url : null;
   }),
 
   // Author
